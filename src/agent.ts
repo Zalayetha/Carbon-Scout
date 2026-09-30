@@ -1,8 +1,17 @@
 import { Agent } from "@anvia/core";
+import { supportPolicy } from "./context.js";
 import { BASE_INSTRUCTIONS } from "./instruction.js";
 import { getModel } from "./model.js";
 import { tools } from "./sandbox.js";
-import { supportPolicy } from "./context.js";
+import { getResearchService } from "./service/index.js";
+import { createCompileReportTool } from "./tools/compile-report.js";
+import { createFetchWebPageTool } from "./tools/fetch-page.js";
+import { createSearchWebTool } from "./tools/search-web.js";
+
+const researchService = getResearchService();
+const searchWeb = createSearchWebTool({ service: researchService });
+const fetchWeb = createFetchWebPageTool({ service: researchService });
+const compileReport = createCompileReportTool();
 
 export function createAgent() {
   return new Agent({
@@ -19,6 +28,6 @@ export function createAgent() {
         }
       }
     ],
-    tools: [...tools]
+    tools: [...tools, searchWeb, fetchWeb, compileReport]
   })
 }

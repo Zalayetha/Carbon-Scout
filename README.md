@@ -1,11 +1,15 @@
-# 🌱 Carbon Scout
-### Autonomous Carbon Market Intelligence & ESG Compliance Agent
+<div align="center">
+  <img src="./public/carbon-scout-logo.svg" alt="Carbon Scout Logo" width="180" />
 
-[![Agent Framework](https://img.shields.io/badge/Framework-Anvia%20Core%20v1.5-3B82F6.svg)](https://www.npmjs.com/package/@anvia/core)
-[![Execution Sandbox](https://img.shields.io/badge/Sandbox-Docker%20Isolation-10B981.svg)](https://www.npmjs.com/package/@anvia/sandbox)
-[![Web Intelligence](https://img.shields.io/badge/Search%20API-Tavily%20AI-0EA5E9.svg)](https://tavily.com/)
-[![Observability](https://img.shields.io/badge/Telemetry-Anvia%20Lens-8B5CF6.svg)](https://www.npmjs.com/package/@anvia/lens)
-[![TypeScript](https://img.shields.io/badge/TypeScript-5.0%2B-blue.svg)](https://www.typescriptlang.org/)
+  # 🌱 Carbon Scout
+  ### Autonomous Carbon Market Intelligence & ESG Compliance Agent
+
+  [![Agent Framework](https://img.shields.io/badge/Framework-Anvia%20Core%20v1.5-3B82F6.svg)](https://www.npmjs.com/package/@anvia/core)
+  [![Execution Sandbox](https://img.shields.io/badge/Sandbox-Docker%20Isolation-10B981.svg)](https://www.npmjs.com/package/@anvia/sandbox)
+  [![Web Intelligence](https://img.shields.io/badge/Search%20API-Tavily%20AI-0EA5E9.svg)](https://tavily.com/)
+  [![Observability](https://img.shields.io/badge/Telemetry-Anvia%20Lens-8B5CF6.svg)](https://www.npmjs.com/package/@anvia/lens)
+  [![TypeScript](https://img.shields.io/badge/TypeScript-5.0%2B-blue.svg)](https://www.typescriptlang.org/)
+</div>
 
 **Carbon Scout** is a production-grade autonomous AI research and regulatory intelligence agent engineered for **Sustainability Directors**, **Carbon Project Developers**, and **Corporate ESG Teams**. Operating with live Tavily web intelligence inside an isolated, resource-governed Docker sandbox, Carbon Scout autonomously synthesizes Voluntary Carbon Market (VCM) pricing benchmarks, audits multi-standard Scope 1/2/3 compliance, and compiles publication-ready Markdown reports with zero hallucination risk.
 
@@ -180,6 +184,8 @@ Carbon Scout incorporates an automated, multi-tiered test harness powered by [`@
 .
 ├── lens/
 │   └── docker-compose.yml               # Local Anvia Lens telemetry infrastructure (Postgres, ClickHouse, Redis)
+├── public/
+│   └── carbon-scout-logo.svg            # Carbon Scout brand logo
 ├── src/
 │   ├── index.ts                         # Main application entry point serving Anvia Studio
 │   ├── agent.ts                         # Carbon Scout agent factory & tool configuration

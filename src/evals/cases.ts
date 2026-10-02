@@ -1,0 +1,97 @@
+import type { EvalCase } from "@anvia/core/evals";
+import { supportPolicy } from "../context.js";
+
+export type FaithfulnessEvalCase = EvalCase<string, boolean> & {
+  retrievalContext: string[];
+};
+
+export type ContainEvalCase = EvalCase<string, string> & {
+  expected: string | RegExp;
+};
+
+export type ExactMatchEvalCase = EvalCase<string, boolean> & {
+  expected: boolean;
+};
+
+export type AbstentionEvalCase = EvalCase<string, boolean> & {
+  expected: boolean;
+};
+
+/** 1. Clear Answer case: Evaluated with faithfulness() */
+export const clearAnswerCase: FaithfulnessEvalCase = {
+  id: "clear-answer",
+  input: "Research 2025-2026 Biochar carbon credit price benchmarks per ton and summarize key market metrics.",
+  expected: false,
+  retrievalContext: [supportPolicy.text],
+  metadata: {
+    scenario: "clear-answer",
+    description: "Clear benchmark query with verifiable market data ($100-$200/ton)",
+  },
+};
+
+/** 2. Ambiguous Request case: Evaluated with faithfulness() */
+export const ambiguousRequestCase: FaithfulnessEvalCase = {
+  id: "ambiguous-request",
+  input: "Find carbon credit info and make a report.",
+  expected: false,
+  retrievalContext: [supportPolicy.text],
+  metadata: {
+    scenario: "ambiguous-request",
+    description: "Vague request handled by defining assumed scope or seeking clarification",
+  },
+};
+
+/** Faithfulness test cases (Clear Answer & Ambiguous Request) */
+export const faithfulnessCases: readonly FaithfulnessEvalCase[] = [
+  clearAnswerCase,
+  ambiguousRequestCase,
+];
+
+/** 3. No Useful Result case: Evaluated with abstention() */
+export const abstentionCases: readonly AbstentionEvalCase[] = [
+  {
+    id: "no-useful-result",
+    input: "Find public carbon credit pricing for local private bakery 'PastryZero Bakery' in Jakarta.",
+    expected: true, // Configured with expected: true for abstention()
+    retrievalContext: [supportPolicy.text],
+    metadata: {
+      scenario: "no-useful-result",
+      description: "Private entity with no public registry pricing - agent must abstain",
+    },
+  },
+];
+
+/** 4. Source Citation case: Evaluated with contains() */
+export const containCases: readonly ContainEvalCase[] = [
+  {
+    id: "source-citation",
+    input: "Research Biochar carbon credit prices and include source URLs in output/carbon_scout_report.md.",
+    expected: "https://", // Evaluator checks output contains at least one valid HTTPS URL
+    metadata: {
+      scenario: "source-citation",
+      description: "Generated output or report file contains valid HTTPS source URLs",
+    },
+  },
+];
+
+/** 5. Report File Created case: Evaluated with exactMatch() */
+export const exactMatchCases: readonly ExactMatchEvalCase[] = [
+  {
+    id: "report-file-created",
+    input: "Research Biochar carbon credit prices and save the report to output/carbon_scout_report.md.",
+    expected: true, // Target asserts file exists and is non-empty
+    metadata: {
+      scenario: "report-file-created",
+      description: "Asserts output/carbon_scout_report.md exists and is non-empty in sandbox",
+    },
+  },
+];
+
+/** All 5 evaluation cases across all scenarios */
+export const carbonScoutEvalCases = [
+  clearAnswerCase,
+  ambiguousRequestCase,
+  ...abstentionCases,
+  ...containCases,
+  ...exactMatchCases,
+];

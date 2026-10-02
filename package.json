@@ -7,11 +7,12 @@
     "start": "pnpm with-env tsx src/index.ts",
     "typecheck": "tsc --noEmit",
     "with-env": "dotenv run --",
+    "eval": "pnpm with-env tsx src/evals/index.ts",
+    "eval:all": "pnpm with-env tsx src/evals/index.ts",
     "eval:contain": "pnpm with-env tsx src/evals/contain/contain.ts",
     "eval:abstention": "pnpm with-env tsx src/evals/abstention/abstention.ts",
     "eval:faithfulness": "pnpm with-env tsx src/evals/faithfulness/faithfulness.ts",
-    "eval:exact-match": "pnpm with-env tsx src/evals/exact-match/exactMatch.ts",
-    "eval:all": "pnpm eval:contain && pnpm eval:abstention && pnpm eval:faithfulness && pnpm eval:exact-match"
+    "eval:exact-match": "pnpm with-env tsx src/evals/exact-match/exactMatch.ts"
   },
   "keywords": [
     "carbon-markets",

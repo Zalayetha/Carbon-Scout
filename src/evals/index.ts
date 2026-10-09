@@ -2,7 +2,6 @@ import {
   abstention,
   contains,
   exactMatch,
-  faithfulness,
   runEvalCli,
 } from "@anvia/core/evals";
 import { createAgent } from "../agent.js";
@@ -12,7 +11,6 @@ import {
   abstentionCases,
   containCases,
   exactMatchCases,
-  faithfulnessCases,
 } from "./cases.js";
 import { createEvalTarget } from "./target.js";
 
@@ -21,20 +19,8 @@ const target = createEvalTarget(agent);
 
 console.log("=== Running Carbon Scout 5 Assignment Evaluations ===");
 
-// 1 & 2. Faithfulness for 'clear-answer' and 'ambiguous-request'
-console.log("\n[1/4] Running Faithfulness Evals (clear-answer & ambiguous-request)...");
-await runEvalCli({
-  name: "faithfulness-eval",
-  cases: faithfulnessCases,
-  target,
-  metrics: [faithfulness({ model: getModel() })],
-  format: "pretty",
-  exitCode: false,
-  reporters: [lens.evalReporter({ includePayloads: true })],
-});
-
-// 3. Abstention for 'no-useful-result'
-console.log("\n[2/4] Running Abstention Eval (no-useful-result)...");
+// 1. Abstention for 'no-useful-result'
+console.log("\n[1/3] Running Abstention Eval (no-useful-result)...");
 await runEvalCli({
   name: "abstention-eval",
   cases: abstentionCases,
@@ -50,10 +36,10 @@ await runEvalCli({
   reporters: [lens.evalReporter({ includePayloads: true })],
 });
 
-// 4. Contains for 'source-citation'
-console.log("\n[3/4] Running Source Citation Eval (source-citation)...");
+// 2. Contains Evals ('clear-answer', 'ambiguous-request', & 'source-citation')
+console.log("\n[2/3] Running Contain Evals (clear-answer, ambiguous-request, & source-citation)...");
 await runEvalCli({
-  name: "source-citation-contain-eval",
+  name: "contain-eval",
   cases: containCases,
   target,
   metrics: [contains()],
@@ -62,8 +48,8 @@ await runEvalCli({
   reporters: [lens.evalReporter({ includePayloads: true })],
 });
 
-// 5. Exact Match for 'report-file-created'
-console.log("\n[4/4] Running Report File Created Eval (report-file-created)...");
+// 3. Exact Match for 'report-file-created'
+console.log("\n[3/3] Running Report File Created Eval (report-file-created)...");
 const finalResult = await runEvalCli({
   name: "report-file-created-exact-match-eval",
   cases: exactMatchCases,

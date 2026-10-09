@@ -11,7 +11,6 @@
     "eval:all": "pnpm with-env tsx src/evals/index.ts",
     "eval:contain": "pnpm with-env tsx src/evals/contain/contain.ts",
     "eval:abstention": "pnpm with-env tsx src/evals/abstention/abstention.ts",
-    "eval:faithfulness": "pnpm with-env tsx src/evals/faithfulness/faithfulness.ts",
     "eval:exact-match": "pnpm with-env tsx src/evals/exact-match/exactMatch.ts"
   },
   "keywords": [

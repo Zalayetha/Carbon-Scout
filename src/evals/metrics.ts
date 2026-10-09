@@ -2,14 +2,8 @@ import {
   abstention,
   contains,
   exactMatch,
-  faithfulness,
 } from "@anvia/core/evals";
 import { getModel } from "../model.js";
-
-/** Faithfulness metric evaluating Clear Answer & Ambiguous Request cases */
-export const faithfulnessMetric = faithfulness({
-  model: getModel(),
-});
 
 /** Abstention metric evaluating No Useful Result case */
 export const abstentionMetric = abstention({

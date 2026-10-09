@@ -1,11 +1,7 @@
 import type { EvalCase } from "@anvia/core/evals";
 import { supportPolicy } from "../context.js";
 
-export type FaithfulnessEvalCase = EvalCase<string, boolean> & {
-  retrievalContext: string[];
-};
-
-export type ContainEvalCase = EvalCase<string, string> & {
+export type ContainEvalCase = EvalCase<string, string | RegExp> & {
   expected: string | RegExp;
 };
 
@@ -17,35 +13,30 @@ export type AbstentionEvalCase = EvalCase<string, boolean> & {
   expected: boolean;
 };
 
-/** 1. Clear Answer case: Evaluated with faithfulness() */
-export const clearAnswerCase: FaithfulnessEvalCase = {
+/** 1. Clear Answer case: Evaluated with contains() */
+export const clearAnswerCase: ContainEvalCase = {
   id: "clear-answer",
   input: "Research 2025-2026 Biochar carbon credit price benchmarks per ton and summarize key market metrics.",
-  expected: false,
-  retrievalContext: [supportPolicy.text],
+  expected: "$",
   metadata: {
     scenario: "clear-answer",
     description: "Clear benchmark query with verifiable market data ($100-$200/ton)",
   },
 };
 
-/** 2. Ambiguous Request case: Evaluated with faithfulness() */
-export const ambiguousRequestCase: FaithfulnessEvalCase = {
+/** 2. Ambiguous Request case: Evaluated with contains() */
+export const ambiguousRequestCase: ContainEvalCase = {
   id: "ambiguous-request",
   input: "Find carbon credit info and make a report.",
-  expected: false,
-  retrievalContext: [supportPolicy.text],
+  expected: /(scope|clarif|assume|voluntary carbon)/i,
   metadata: {
     scenario: "ambiguous-request",
     description: "Vague request handled by defining assumed scope or seeking clarification",
   },
 };
 
-/** Faithfulness test cases (Clear Answer & Ambiguous Request) */
-export const faithfulnessCases: readonly FaithfulnessEvalCase[] = [
-  clearAnswerCase,
-  ambiguousRequestCase,
-];
+/** Faithfulness test cases (deprecated - all cases migrated to contains()) */
+export const faithfulnessCases: readonly any[] = [];
 
 /** 3. No Useful Result case: Evaluated with abstention() */
 export const abstentionCases: readonly AbstentionEvalCase[] = [
@@ -61,8 +52,10 @@ export const abstentionCases: readonly AbstentionEvalCase[] = [
   },
 ];
 
-/** 4. Source Citation case: Evaluated with contains() */
+/** 4. Source Citation, Clear Answer & Ambiguous Request cases: Evaluated with contains() */
 export const containCases: readonly ContainEvalCase[] = [
+  clearAnswerCase,
+  ambiguousRequestCase,
   {
     id: "source-citation",
     input: "Research Biochar carbon credit prices and include source URLs in output/carbon_scout_report.md.",

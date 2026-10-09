@@ -23,8 +23,8 @@ The evaluation suite uses standard `@anvia/core/evals` metrics:
 
 | Scenario | Case ID | Metric | Expected Behavior |
 |---|---|---|---|
-| **1. Clear Answer** | `clear-answer` | `faithfulness()` | Retrieves grounded Biochar market benchmarks ($100–$200/ton). |
-| **2. Ambiguous Request** | `ambiguous-request` | `faithfulness()` | Scopes vague queries to VCM benchmarks or requests clarification. |
+| **1. Clear Answer** | `clear-answer` | `contains()` | Asserts output contains Biochar market benchmarks and dollar price per ton pattern. |
+| **2. Ambiguous Request** | `ambiguous-request` | `contains()` | Asserts output defines assumed scope, seeks clarification, or cites VCM frameworks. |
 | **3. No Useful Result** | `no-useful-result` | `abstention()` | Abstains when queried for unlisted private corporate data (`expected: true`). |
 | **4. Source Citation** | `source-citation` | `contains()` | Asserts presence of valid HTTPS source URLs (`expected: "https://"`). |
 | **5. Report File Created** | `report-file-created` | `exactMatch()` | Asserts `output/carbon_scout_report.md` exists and is non-empty (`expected: true`). |
@@ -57,13 +57,12 @@ Open **`http://localhost:3001/ui/playground`** to interact with Carbon Scout and
 
 ### 3. Run Evaluation Suite
 ```bash
-# Run all 5 evaluation scenarios
+# Run all evaluation scenarios
 pnpm eval
 
 # Run individual test suites
-pnpm eval:faithfulness  # Clear Answer & Ambiguous Request
+pnpm eval:contain       # Clear Answer, Ambiguous Request & Source Citation
 pnpm eval:abstention    # No Useful Result / Abstention
-pnpm eval:contain       # Source Citation
 pnpm eval:exact-match   # Report File Created
 ```
 

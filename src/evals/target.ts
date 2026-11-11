@@ -1,6 +1,6 @@
 import type { EvalCase } from "@anvia/core/evals";
 import type { createAgent } from "../agent.js";
-import { sandbox, tools } from "../sandbox.js";
+import { getSandbox, getSandboxTools } from "../sandbox.js";
 
 /**
  * Creates an evaluation target function that invokes the agent and:
@@ -8,7 +8,7 @@ import { sandbox, tools } from "../sandbox.js";
  * - Returns chat response combined with report file content for 'source-citation'
  * - Returns conversational chat response for faithfulness / abstention cases
  */
-export function createEvalTarget(agent: ReturnType<typeof createAgent>) {
+export function createEvalTarget(agent: Awaited<ReturnType<typeof createAgent>>) {
   return async (input: string, testCase: EvalCase<string, unknown>): Promise<string | boolean> => {
     // 1. Invoke the agent
     const response = await agent.generate({ prompt: input });
@@ -24,6 +24,7 @@ export function createEvalTarget(agent: ReturnType<typeof createAgent>) {
     let reportFileContent = "";
     let reportFileExists = false;
 
+    const tools = await getSandboxTools();
     try {
       const readFileTool = tools.find((t) => t.name === "read_file");
       if (readFileTool) {
@@ -48,6 +49,7 @@ export function createEvalTarget(agent: ReturnType<typeof createAgent>) {
 
     if (!reportFileExists) {
       try {
+        const sandbox = await getSandbox();
         const text = await sandbox.runtime.readTextFile({ path: "output/carbon_scout_report.md" });
         if (typeof text === "string" && text.length > 0) {
           reportFileContent = text;

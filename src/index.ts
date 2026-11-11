@@ -1,8 +1,10 @@
 import { Studio } from "@anvia/studio";
 import { createAgent } from "./agent.js";
-import { sandbox, tools } from "./sandbox.js";
+import { getSandbox, getSandboxTools } from "./sandbox.js";
 
-const agent = createAgent();
+const agent = await createAgent();
+const sandbox = await getSandbox();
+const tools = await getSandboxTools();
 
 export const studio = new Studio([agent], {
   sandboxes: [

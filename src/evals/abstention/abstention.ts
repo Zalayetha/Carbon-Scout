@@ -5,7 +5,9 @@ import { lens } from "../../observer.js";
 import { abstentionCases } from "../cases.js";
 import { createEvalTarget } from "../target.js";
 
-const agent = await createAgent();
+const agent = await createAgent({
+  observability: { observers: { lens: lens.observer() } },
+});
 const target = createEvalTarget(agent);
 
 const evalResult = await runEvalCli({

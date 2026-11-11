@@ -1,4 +1,5 @@
 import { Agent } from "@anvia/core";
+import type { AgentObservabilityOptions } from "@anvia/core/observability";
 import { supportPolicy } from "./context.js";
 import { BASE_INSTRUCTIONS } from "./instruction.js";
 import { getModel } from "./model.js";
@@ -13,7 +14,12 @@ const searchWeb = createSearchWebTool({ service: researchService });
 const fetchWeb = createFetchWebPageTool({ service: researchService });
 const compileReport = createCompileReportTool();
 
-export async function createAgent() {
+export type CreateAgentOptions = {
+  /** Observers to attach, e.g. Lens tracing for eval runs. Omitted means no tracing. */
+  observability?: AgentObservabilityOptions;
+};
+
+export async function createAgent(options: CreateAgentOptions = {}) {
   const tools = await getSandboxTools();
   return new Agent({
     id: "carbon market intelligence agent",
@@ -29,6 +35,7 @@ export async function createAgent() {
         }
       }
     ],
-    tools: [...tools, searchWeb, fetchWeb, compileReport]
+    tools: [...tools, searchWeb, fetchWeb, compileReport],
+    observability: options.observability
   })
 }

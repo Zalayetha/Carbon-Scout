@@ -168,19 +168,19 @@ importers:
     dependencies:
       '@anvia/core':
         specifier: ^1.5.0
-        version: 1.5.0(zod@4.6.5)
+        version: 1.5.0(zod@4.6.6)
       '@anvia/lens':
         specifier: ^1.2.0
-        version: 1.2.0(@anvia/core@1.5.0(zod@4.6.5))(@opentelemetry/api@1.9.1)
+        version: 1.2.0(@anvia/core@1.5.0(zod@4.6.6))(@opentelemetry/api@1.9.1)
       '@anvia/openai':
         specifier: ^1.1.7
-        version: 1.1.7(@anvia/core@1.5.0(zod@4.6.5))(ws@8.22.0)(zod@4.6.5)
+        version: 1.1.7(@anvia/core@1.5.0(zod@4.6.6))(ws@8.22.0)(zod@4.6.6)
       '@anvia/sandbox':
         specifier: ^1.1.6
-        version: 1.1.6(@anvia/core@1.5.0(zod@4.6.5))
+        version: 1.1.6(@anvia/core@1.5.0(zod@4.6.6))
       '@anvia/studio':
         specifier: ^1.3.0
-        version: 1.3.0(@anvia/core@1.5.0(zod@4.6.5))(@floating-ui/dom@1.8.0)(@tiptap/extensions@3.31.3(@tiptap/core@3.31.3(@tiptap/pm@3.31.3))(@tiptap/pm@3.31.3))(@types/react-dom@19.3.0(@types/react@19.3.0))(@types/react@19.3.0)(zod@4.6.5)
+        version: 1.3.0(@anvia/core@1.5.0(zod@4.6.6))(@floating-ui/dom@1.8.0)(@tiptap/extensions@3.31.3(@tiptap/core@3.31.3(@tiptap/pm@3.31.3))(@tiptap/pm@3.31.3))(@types/react-dom@19.3.0(@types/react@19.3.0))(@types/react@19.3.0)(zod@4.6.6)
       '@tavily/core':
         specifier: ^0.7.13
         version: 0.7.13(debug@4.4.3)
@@ -191,8 +191,8 @@ importers:
         specifier: ^11.0.0
         version: 11.0.0
       zod:
-        specifier: ^4.6.5
-        version: 4.6.5
+        specifier: ^4.6.6
+        version: 4.6.6
     devDependencies:
       '@types/node':
         specifier: ^26.6.3
@@ -1912,8 +1912,8 @@ packages:
     engines: {node: '>= 14.6'}
     hasBin: true
 
-  zod@4.6.5:
-    resolution: {integrity: sha512-v5l/aFXZQeai4awLbOpSoHecE9UiMrnfx75tEXLjNonXVARxQ5mOeipTjROUchszUNCqnE+hqAMujRsRHsut2Q==}
+  zod@4.6.6:
+    resolution: {integrity: sha512-4UmzQUF5fxvfcYHlbjBmejU+w+hbDnWFx4aS8kBx7nPBHcO2SqPbpAG8snbdg+Xse4pRefR98hgjFgIMCI/UhA==}
 
   zustand@4.5.7:
     resolution: {integrity: sha512-CHOUy7mu3lbD6o6LJLfllpjkzhHXSBlX8B9+qPddUsIfeF5S/UZ5q0kmCsnRqT1UHFQZchNFDDzMbQsuesHWlw==}
@@ -1935,24 +1935,24 @@ packages:
 
 snapshots:
 
-  '@anvia/client@1.2.0(@anvia/core@1.5.0(zod@4.6.5))':
+  '@anvia/client@1.2.0(@anvia/core@1.5.0(zod@4.6.6))':
     dependencies:
-      '@anvia/core': 1.5.0(zod@4.6.5)
+      '@anvia/core': 1.5.0(zod@4.6.6)
 
-  '@anvia/core@1.5.0(zod@4.6.5)':
+  '@anvia/core@1.5.0(zod@4.6.6)':
     dependencies:
       yaml: 2.9.1
-      zod: 4.6.5
+      zod: 4.6.6
 
-  '@anvia/graph@1.1.4(@anvia/core@1.5.0(zod@4.6.5))(zod@4.6.5)':
+  '@anvia/graph@1.1.4(@anvia/core@1.5.0(zod@4.6.6))(zod@4.6.6)':
     dependencies:
-      '@anvia/core': 1.5.0(zod@4.6.5)
-      zod: 4.6.5
+      '@anvia/core': 1.5.0(zod@4.6.6)
+      zod: 4.6.6
 
-  '@anvia/lens@1.2.0(@anvia/core@1.5.0(zod@4.6.5))(@opentelemetry/api@1.9.1)':
+  '@anvia/lens@1.2.0(@anvia/core@1.5.0(zod@4.6.6))(@opentelemetry/api@1.9.1)':
     dependencies:
-      '@anvia/core': 1.5.0(zod@4.6.5)
-      '@anvia/otel': 1.2.0(@anvia/core@1.5.0(zod@4.6.5))
+      '@anvia/core': 1.5.0(zod@4.6.6)
+      '@anvia/otel': 1.2.0(@anvia/core@1.5.0(zod@4.6.6))
       '@opentelemetry/exporter-logs-otlp-http': 0.222.0(@opentelemetry/api@1.9.1)
       '@opentelemetry/exporter-trace-otlp-http': 0.222.0(@opentelemetry/api@1.9.1)
       '@opentelemetry/resources': 2.11.0(@opentelemetry/api@1.9.1)
@@ -1962,10 +1962,10 @@ snapshots:
     transitivePeerDependencies:
       - '@opentelemetry/api'
 
-  '@anvia/openai@1.1.7(@anvia/core@1.5.0(zod@4.6.5))(ws@8.22.0)(zod@4.6.5)':
+  '@anvia/openai@1.1.7(@anvia/core@1.5.0(zod@4.6.6))(ws@8.22.0)(zod@4.6.6)':
     dependencies:
-      '@anvia/core': 1.5.0(zod@4.6.5)
-      openai: 7.23.0(ws@8.22.0)(zod@4.6.5)
+      '@anvia/core': 1.5.0(zod@4.6.6)
+      openai: 7.23.0(ws@8.22.0)(zod@4.6.6)
     transitivePeerDependencies:
       - '@aws-sdk/credential-provider-node'
       - '@smithy/hash-node'
@@ -1974,16 +1974,16 @@ snapshots:
       - ws
       - zod
 
-  '@anvia/otel@1.2.0(@anvia/core@1.5.0(zod@4.6.5))':
+  '@anvia/otel@1.2.0(@anvia/core@1.5.0(zod@4.6.6))':
     dependencies:
-      '@anvia/core': 1.5.0(zod@4.6.5)
+      '@anvia/core': 1.5.0(zod@4.6.6)
       '@opentelemetry/api': 1.9.1
       '@opentelemetry/api-logs': 0.222.0
 
-  '@anvia/react-ui@1.1.6(@anvia/client@1.2.0(@anvia/core@1.5.0(zod@4.6.5)))(@anvia/graph@1.1.4(@anvia/core@1.5.0(zod@4.6.5))(zod@4.6.5))(@anvia/react@1.1.3(@anvia/client@1.2.0(@anvia/core@1.5.0(zod@4.6.5)))(@anvia/core@1.5.0(zod@4.6.5))(@anvia/graph@1.1.4(@anvia/core@1.5.0(zod@4.6.5))(zod@4.6.5))(react@19.3.0))(@floating-ui/dom@1.8.0)(@tiptap/extensions@3.31.3(@tiptap/core@3.31.3(@tiptap/pm@3.31.3))(@tiptap/pm@3.31.3))(@types/react-dom@19.3.0(@types/react@19.3.0))(@types/react@19.3.0)(react-dom@19.3.0(react@19.3.0))(react@19.3.0)':
+  '@anvia/react-ui@1.1.6(@anvia/client@1.2.0(@anvia/core@1.5.0(zod@4.6.6)))(@anvia/graph@1.1.4(@anvia/core@1.5.0(zod@4.6.6))(zod@4.6.6))(@anvia/react@1.1.3(@anvia/client@1.2.0(@anvia/core@1.5.0(zod@4.6.6)))(@anvia/core@1.5.0(zod@4.6.6))(@anvia/graph@1.1.4(@anvia/core@1.5.0(zod@4.6.6))(zod@4.6.6))(react@19.3.0))(@floating-ui/dom@1.8.0)(@tiptap/extensions@3.31.3(@tiptap/core@3.31.3(@tiptap/pm@3.31.3))(@tiptap/pm@3.31.3))(@types/react-dom@19.3.0(@types/react@19.3.0))(@types/react@19.3.0)(react-dom@19.3.0(react@19.3.0))(react@19.3.0)':
     dependencies:
-      '@anvia/client': 1.2.0(@anvia/core@1.5.0(zod@4.6.5))
-      '@anvia/react': 1.1.3(@anvia/client@1.2.0(@anvia/core@1.5.0(zod@4.6.5)))(@anvia/core@1.5.0(zod@4.6.5))(@anvia/graph@1.1.4(@anvia/core@1.5.0(zod@4.6.5))(zod@4.6.5))(react@19.3.0)
+      '@anvia/client': 1.2.0(@anvia/core@1.5.0(zod@4.6.6))
+      '@anvia/react': 1.1.3(@anvia/client@1.2.0(@anvia/core@1.5.0(zod@4.6.6)))(@anvia/core@1.5.0(zod@4.6.6))(@anvia/graph@1.1.4(@anvia/core@1.5.0(zod@4.6.6))(zod@4.6.6))(react@19.3.0)
       '@radix-ui/react-slot': 1.3.3(@types/react@19.3.0)(react@19.3.0)
       '@tiptap/core': 3.31.3(@tiptap/pm@3.31.3)
       '@tiptap/extension-document': 3.31.3(@tiptap/core@3.31.3(@tiptap/pm@3.31.3))
@@ -2001,7 +2001,7 @@ snapshots:
       react-markdown: 10.1.0(@types/react@19.3.0)(react@19.3.0)
       remark-gfm: 4.0.1
     optionalDependencies:
-      '@anvia/graph': 1.1.4(@anvia/core@1.5.0(zod@4.6.5))(zod@4.6.5)
+      '@anvia/graph': 1.1.4(@anvia/core@1.5.0(zod@4.6.6))(zod@4.6.6)
     transitivePeerDependencies:
       - '@floating-ui/dom'
       - '@tiptap/extensions'
@@ -2009,32 +2009,32 @@ snapshots:
       - '@types/react-dom'
       - supports-color
 
-  '@anvia/react@1.1.3(@anvia/client@1.2.0(@anvia/core@1.5.0(zod@4.6.5)))(@anvia/core@1.5.0(zod@4.6.5))(@anvia/graph@1.1.4(@anvia/core@1.5.0(zod@4.6.5))(zod@4.6.5))(react@19.3.0)':
+  '@anvia/react@1.1.3(@anvia/client@1.2.0(@anvia/core@1.5.0(zod@4.6.6)))(@anvia/core@1.5.0(zod@4.6.6))(@anvia/graph@1.1.4(@anvia/core@1.5.0(zod@4.6.6))(zod@4.6.6))(react@19.3.0)':
     dependencies:
-      '@anvia/client': 1.2.0(@anvia/core@1.5.0(zod@4.6.5))
-      '@anvia/core': 1.5.0(zod@4.6.5)
+      '@anvia/client': 1.2.0(@anvia/core@1.5.0(zod@4.6.6))
+      '@anvia/core': 1.5.0(zod@4.6.6)
       react: 19.3.0
     optionalDependencies:
-      '@anvia/graph': 1.1.4(@anvia/core@1.5.0(zod@4.6.5))(zod@4.6.5)
+      '@anvia/graph': 1.1.4(@anvia/core@1.5.0(zod@4.6.6))(zod@4.6.6)
 
-  '@anvia/sandbox@1.1.6(@anvia/core@1.5.0(zod@4.6.5))':
+  '@anvia/sandbox@1.1.6(@anvia/core@1.5.0(zod@4.6.6))':
     dependencies:
-      '@anvia/core': 1.5.0(zod@4.6.5)
+      '@anvia/core': 1.5.0(zod@4.6.6)
       '@clack/prompts': 1.8.1
-      zod: 4.6.5
+      zod: 4.6.6
 
-  '@anvia/server@1.1.4(@anvia/client@1.2.0(@anvia/core@1.5.0(zod@4.6.5)))':
+  '@anvia/server@1.1.4(@anvia/client@1.2.0(@anvia/core@1.5.0(zod@4.6.6)))':
     dependencies:
-      '@anvia/client': 1.2.0(@anvia/core@1.5.0(zod@4.6.5))
+      '@anvia/client': 1.2.0(@anvia/core@1.5.0(zod@4.6.6))
 
-  '@anvia/studio@1.3.0(@anvia/core@1.5.0(zod@4.6.5))(@floating-ui/dom@1.8.0)(@tiptap/extensions@3.31.3(@tiptap/core@3.31.3(@tiptap/pm@3.31.3))(@tiptap/pm@3.31.3))(@types/react-dom@19.3.0(@types/react@19.3.0))(@types/react@19.3.0)(zod@4.6.5)':
+  '@anvia/studio@1.3.0(@anvia/core@1.5.0(zod@4.6.6))(@floating-ui/dom@1.8.0)(@tiptap/extensions@3.31.3(@tiptap/core@3.31.3(@tiptap/pm@3.31.3))(@tiptap/pm@3.31.3))(@types/react-dom@19.3.0(@types/react@19.3.0))(@types/react@19.3.0)(zod@4.6.6)':
     dependencies:
-      '@anvia/client': 1.2.0(@anvia/core@1.5.0(zod@4.6.5))
-      '@anvia/core': 1.5.0(zod@4.6.5)
-      '@anvia/graph': 1.1.4(@anvia/core@1.5.0(zod@4.6.5))(zod@4.6.5)
-      '@anvia/react': 1.1.3(@anvia/client@1.2.0(@anvia/core@1.5.0(zod@4.6.5)))(@anvia/core@1.5.0(zod@4.6.5))(@anvia/graph@1.1.4(@anvia/core@1.5.0(zod@4.6.5))(zod@4.6.5))(react@19.3.0)
-      '@anvia/react-ui': 1.1.6(@anvia/client@1.2.0(@anvia/core@1.5.0(zod@4.6.5)))(@anvia/graph@1.1.4(@anvia/core@1.5.0(zod@4.6.5))(zod@4.6.5))(@anvia/react@1.1.3(@anvia/client@1.2.0(@anvia/core@1.5.0(zod@4.6.5)))(@anvia/core@1.5.0(zod@4.6.5))(@anvia/graph@1.1.4(@anvia/core@1.5.0(zod@4.6.5))(zod@4.6.5))(react@19.3.0))(@floating-ui/dom@1.8.0)(@tiptap/extensions@3.31.3(@tiptap/core@3.31.3(@tiptap/pm@3.31.3))(@tiptap/pm@3.31.3))(@types/react-dom@19.3.0(@types/react@19.3.0))(@types/react@19.3.0)(react-dom@19.3.0(react@19.3.0))(react@19.3.0)
-      '@anvia/server': 1.1.4(@anvia/client@1.2.0(@anvia/core@1.5.0(zod@4.6.5)))
+      '@anvia/client': 1.2.0(@anvia/core@1.5.0(zod@4.6.6))
+      '@anvia/core': 1.5.0(zod@4.6.6)
+      '@anvia/graph': 1.1.4(@anvia/core@1.5.0(zod@4.6.6))(zod@4.6.6)
+      '@anvia/react': 1.1.3(@anvia/client@1.2.0(@anvia/core@1.5.0(zod@4.6.6)))(@anvia/core@1.5.0(zod@4.6.6))(@anvia/graph@1.1.4(@anvia/core@1.5.0(zod@4.6.6))(zod@4.6.6))(react@19.3.0)
+      '@anvia/react-ui': 1.1.6(@anvia/client@1.2.0(@anvia/core@1.5.0(zod@4.6.6)))(@anvia/graph@1.1.4(@anvia/core@1.5.0(zod@4.6.6))(zod@4.6.6))(@anvia/react@1.1.3(@anvia/client@1.2.0(@anvia/core@1.5.0(zod@4.6.6)))(@anvia/core@1.5.0(zod@4.6.6))(@anvia/graph@1.1.4(@anvia/core@1.5.0(zod@4.6.6))(zod@4.6.6))(react@19.3.0))(@floating-ui/dom@1.8.0)(@tiptap/extensions@3.31.3(@tiptap/core@3.31.3(@tiptap/pm@3.31.3))(@tiptap/pm@3.31.3))(@types/react-dom@19.3.0(@types/react@19.3.0))(@types/react@19.3.0)(react-dom@19.3.0(react@19.3.0))(react@19.3.0)
+      '@anvia/server': 1.1.4(@anvia/client@1.2.0(@anvia/core@1.5.0(zod@4.6.6)))
       '@fontsource-variable/geist': 5.3.0
       '@fontsource-variable/geist-mono': 5.3.0
       '@hono/node-server': 2.1.1(hono@4.13.9)
@@ -3519,10 +3519,10 @@ snapshots:
 
   ms@2.1.3: {}
 
-  openai@7.23.0(ws@8.22.0)(zod@4.6.5):
+  openai@7.23.0(ws@8.22.0)(zod@4.6.6):
     optionalDependencies:
       ws: 8.22.0
-      zod: 4.6.5
+      zod: 4.6.6
 
   orderedmap@2.1.1: {}
 
@@ -3846,7 +3846,7 @@ snapshots:
 
   yaml@2.9.1: {}
 
-  zod@4.6.5: {}
+  zod@4.6.6: {}
 
   zustand@4.5.7(@types/react@19.3.0)(react@19.3.0):
     dependencies:

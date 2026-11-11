@@ -17,7 +17,7 @@ export type AbstentionEvalCase = EvalCase<string, boolean> & {
 export const clearAnswerCase: ContainEvalCase = {
   id: "clear-answer",
   input: "Research 2025-2026 Biochar carbon credit price benchmarks per ton and summarize key market metrics.",
-  expected: /(biochar|CORC).*\$\s*[\d,.]+\s*-\s*\$?[\d,.]+/i,
+  expected: /(biochar|CORC).*\$\s*[\d,.]+\s*(?:-|–|—|to)\s*\$?[\d,.]+/i,
   metadata: {
     scenario: "clear-answer",
     description: "Clear benchmark query with verifiable market data ($100-$200/ton)",
